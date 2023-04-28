@@ -22,9 +22,6 @@ public class User {
 	private String email;
 	@Column(name = "name")
 	private String name;
-	@Column(name = "phone_number", unique = true)
-	private String phoneNumber;
-	
 	@Column(name= "passphrase", nullable=false)
 	private String passphrase;
 	
@@ -54,20 +51,20 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
+	
 	public List<UserLogin> getLogins() {
 		return logins;
 	}
 
 	public void setLogins(List<UserLogin> logins) {
 		this.logins = logins;
+	}
+
+	public String getPassphrase() {
+		return passphrase;
+	}
+
+	public void setPassphrase(String passphrase) {
+		this.passphrase = passphrase;
 	}
 }

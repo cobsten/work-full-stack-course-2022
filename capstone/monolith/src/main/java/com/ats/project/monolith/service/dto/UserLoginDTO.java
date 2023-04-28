@@ -1,36 +1,17 @@
-package com.ats.project.monolith.entity;
+package com.ats.project.monolith.service.dto;
 
-import java.math.BigInteger;
 import java.time.Instant;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+public class UserLoginDTO {
 
-@Entity
-@Table(name = "tb_user_login")
-public class UserLogin {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
-	@JoinColumn(name="user_id",referencedColumnName = "id")
-	private User user;
+	private UserDTO user;
 	
-	@Column(name="login_success")
 	private Boolean loginSuccess;
 	
-	@Column(name="login_datetime")
 	private Instant loginDateTime;
-	
-	@Column(name="logout_datetime")
+
 	private Instant logoutDateTime;
 
 	public Long getId() {
@@ -41,11 +22,11 @@ public class UserLogin {
 		this.id = id;
 	}
 
-	public User getUser() {
+	public UserDTO getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(UserDTO user) {
 		this.user = user;
 	}
 

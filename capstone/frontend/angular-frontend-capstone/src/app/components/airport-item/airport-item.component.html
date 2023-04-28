@@ -1,0 +1,19 @@
+<div class="card my-1" style="width: 25rem;">
+    <div class="card-header">
+        <h4>Code:</h4> {{airport.airportCode}}
+    </div>
+    <div class="card-body">
+        <label for="airportName">Name:</label>
+        <input #airportName id="airportName" type="text" class="form-control" value="{{airport.airportName}}">
+        <label for="countryCode">Country Code:</label>
+        <input #countryCode id="countryCode" type="text" class="form-control" value="{{airport.countryCode}}">
+        <div class="btn-group">
+            <button class="btn btn-warning" (click) ="updateItem(airportName.value,countryCode.value)">Update</button>
+            <button class="btn btn-danger" (click) = "deleteItem()">Delete</button>
+        </div>
+    </div>
+
+</div>
+
+
+

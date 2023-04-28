@@ -38,7 +38,7 @@ public class ValidationHandler extends ResponseEntityExceptionHandler{
 	
     @ExceptionHandler
     public ResponseEntity<Object> handleException(Exception ex, NativeWebRequest request) {
-		log.error(ex.toString());
+		log.error(ex.toString(),ex);
 		return new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

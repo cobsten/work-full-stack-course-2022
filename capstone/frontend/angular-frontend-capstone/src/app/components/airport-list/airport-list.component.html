@@ -1,0 +1,9 @@
+
+<div class="mx-2">
+<div *ngIf="!airportList?.length">
+    <p> The list of airports seems to be empty. Click 'Add Airport' to add more airports.</p>
+
+</div>
+<app-airport-item *ngFor="let airport of airportList" [airport] = airport (updateItemEvent)="updateItem($event)" (deleteItemEvent)="deleteItem($event)"></app-airport-item>
+<a class="btn btn-outline-primary" [routerLink]="['/airports/new']">Add Airport</a>
+</div>

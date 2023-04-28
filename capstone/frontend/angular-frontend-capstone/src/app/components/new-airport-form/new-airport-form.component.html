@@ -1,0 +1,15 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+    <label for="name">Airport Name:</label>
+    <input id="airportName" type="text" class = "form-control" formControlName="airportName">
+    </div>
+    <div class="form-group">
+    <label for="countryCode">Country Code:</label>
+    <input id="countryCode" type="text" class = "form-control" formControlName="countryCode">
+    </div>
+    <div class = "btn-group"> 
+    <a class="btn btn-outline-secondary" [routerLink]="['/airports']">Return to list</a>
+    <button class="btn btn-primary" type="submit">Create New Airport</button>
+    </div>
+</form>
+
