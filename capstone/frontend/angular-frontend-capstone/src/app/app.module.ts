@@ -3,16 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AdminService } from './admin.service';
+import { AdminService } from './services/admin.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomValidator } from './validators/CustomValidator';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { MenuComponent } from './menu/menu.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { MenuComponent } from './components/menu/menu.component';
 import { AirportListComponent } from './components/airport-list/airport-list.component';
 import { AirportItemComponent } from './components/airport-item/airport-item.component';
 import { NewAirportFormComponent } from './components/new-airport-form/new-airport-form.component';
+import { TopNavBarComponent } from './components/top-nav-bar/top-nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NewAirportFormComponent } from './components/new-airport-form/new-airpo
     MenuComponent,
     AirportListComponent,
     AirportItemComponent,
-    NewAirportFormComponent
+    NewAirportFormComponent,
+    TopNavBarComponent
   ],
   imports: [
     BrowserModule,

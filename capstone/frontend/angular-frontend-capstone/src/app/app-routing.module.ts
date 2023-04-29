@@ -1,8 +1,8 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegistrationFormComponent } from './registration-form/registration-form.component';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { MenuComponent } from './menu/menu.component';
+import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { MenuComponent } from './components/menu/menu.component';
 import { authGuard } from './auth/auth.guard';
 import { AirportListComponent } from './components/airport-list/airport-list.component';
 import { NewAirportFormComponent } from './components/new-airport-form/new-airport-form.component';

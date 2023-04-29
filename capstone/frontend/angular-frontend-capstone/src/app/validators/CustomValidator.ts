@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AbstractControl, AsyncValidatorFn, ValidationErrors, ValidatorFn } from "@angular/forms";
-import { AdminService } from "../admin.service";
+import { AdminService } from "../services/admin.service";
 import { Observable, catchError, map, of } from "rxjs";
 
 export class CustomValidator {
