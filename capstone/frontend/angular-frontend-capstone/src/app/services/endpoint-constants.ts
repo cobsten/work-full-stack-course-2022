@@ -3,4 +3,5 @@ export class EndpointConstants{
     static createUserApiFragment = '/api/users';
     static queryEmailExistsApiFragment = '/api/users/emails/exist';
     static retrieveAirportsApiFragment = '/api/airports';
+    static countryBaseApiUrl = `${EndpointConstants.serverUrl}/api/countries`;
 }

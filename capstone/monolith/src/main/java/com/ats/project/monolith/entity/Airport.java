@@ -31,6 +31,11 @@ public class Airport implements Serializable{
     @Column(name = "country_code", length = 5)
     private String countryCode;
 
+	public Airport airportCode(String airportCode) {
+		this.airportCode = airportCode;
+		return this;
+	}
+	
 	public String getAirportCode() {
 		return airportCode;
 	}
@@ -39,6 +44,11 @@ public class Airport implements Serializable{
 		this.airportCode = airportCode;
 	}
 
+	public Airport airportName(String airportName) {
+		this.airportName = airportName;
+		return this;
+	}
+	
 	public String getAirportName() {
 		return airportName;
 	}
@@ -47,6 +57,11 @@ public class Airport implements Serializable{
 		this.airportName = airportName;
 	}
 
+	public Airport countryCode(String countryCode) {
+		this.countryCode = countryCode;
+		return this;
+	}
+	
 	public String getCountryCode() {
 		return countryCode;
 	}
@@ -54,7 +69,7 @@ public class Airport implements Serializable{
 	public void setCountryCode(String countryCode) {
 		this.countryCode = countryCode;
 	}
-	
+
 	
     
 }

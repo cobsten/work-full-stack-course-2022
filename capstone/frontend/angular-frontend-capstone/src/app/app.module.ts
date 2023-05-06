@@ -14,6 +14,7 @@ import { AirportListComponent } from './components/airport-list/airport-list.com
 import { AirportItemComponent } from './components/airport-item/airport-item.component';
 import { NewAirportFormComponent } from './components/new-airport-form/new-airport-form.component';
 import { TopNavBarComponent } from './components/top-nav-bar/top-nav-bar.component';
+import { AirportSearchComponent } from './components/airport-search/airport-search.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TopNavBarComponent } from './components/top-nav-bar/top-nav-bar.compone
     AirportListComponent,
     AirportItemComponent,
     NewAirportFormComponent,
-    TopNavBarComponent
+    TopNavBarComponent,
+    AirportSearchComponent
   ],
   imports: [
     BrowserModule,

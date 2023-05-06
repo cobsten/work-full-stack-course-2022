@@ -20,7 +20,7 @@ export class LoginFormComponent implements OnInit{
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       email: ['', Validators.required],
-      passphrase: ['', [Validators.required,CustomValidator.createPasswordValidator()]]
+      passphrase: ['', [Validators.required]]
     })
   }
   onSubmit() {
@@ -31,7 +31,18 @@ export class LoginFormComponent implements OnInit{
       return;
     }
     let user: Admin = this.form.value;
-    this.authService.login(user);
-    this.router.navigate(['']);
+    this.authService.login(user).then((success: boolean)=>{
+      if(success){
+        console.log('success');
+        this.router.navigate(['']);
+      }else{
+        console.log('failure');
+        this.form.setErrors({
+          badCredentials: true
+        })
+        return
+      }
+    }
+    )
   }
 }

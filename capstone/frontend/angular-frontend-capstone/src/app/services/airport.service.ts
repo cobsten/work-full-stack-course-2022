@@ -39,7 +39,7 @@ export class AirportService {
     return this.client.patch(this.airportApiUrl,airport);
   }
 
-  deleteAirport(airpoint: Airport){
-    //this does nothing
+  deleteAirport(airport: Airport){
+    return this.client.delete<void>(this.airportApiUrl.concat("/",airport.airportCode));
   }
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, delay, tap, map, BehaviorSubject } from 'rxjs';
+import { Observable, of, delay, tap, map, BehaviorSubject, firstValueFrom, take } from 'rxjs';
 import { Admin } from 'src/Objects';
 
 @Injectable({
@@ -30,14 +30,16 @@ export class AuthService {
   constructor(private client: HttpClient) { }
 
 
-  login(user: Admin) {
-    return this.client.post<boolean>(this.loginUserApiUrl, user).subscribe((success: boolean) => {
-      if (success) {
+  login(user: Admin): Promise<boolean> {
+
+    let result:Observable<boolean> = this.client.post<boolean>(this.loginUserApiUrl, user).pipe(take(1)) as Observable<boolean>;
+    return firstValueFrom(result).then((success:boolean) => {
+      if(success){
         sessionStorage.setItem('loggedIn', 'yes');
         this.isLoggedInSubject.next(true);
       }
-    }
-    );
+      return success;
+    });
   }
 
   logout(): void {

@@ -6,7 +6,9 @@
         <label for="airportName">Name:</label>
         <input #airportName id="airportName" type="text" class="form-control" value="{{airport.airportName}}">
         <label for="countryCode">Country Code:</label>
-        <input #countryCode id="countryCode" type="text" class="form-control" value="{{airport.countryCode}}">
+        <select #countryCode id="countryCode" class="form-control">
+            <option *ngFor="let country of countryList" [value] = "country.countryCode" [selected] = "country.countryCode == airport.countryCode">{{country.countryName}}</option>
+        </select>
         <div class="btn-group">
             <button class="btn btn-warning" (click) ="updateItem(airportName.value,countryCode.value)">Update</button>
             <button class="btn btn-danger" (click) = "deleteItem()">Delete</button>

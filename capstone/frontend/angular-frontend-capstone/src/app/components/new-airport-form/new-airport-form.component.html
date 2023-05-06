@@ -1,3 +1,6 @@
+<div *ngIf="submitSuccessAirport" class="alert alert-success">
+    The airport was created successfully with Airport Code: {{submitSuccessAirport}}
+</div>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-group">
     <label for="name">Airport Name:</label>
@@ -5,7 +8,10 @@
     </div>
     <div class="form-group">
     <label for="countryCode">Country Code:</label>
-    <input id="countryCode" type="text" class = "form-control" formControlName="countryCode">
+    <select id="countryCode" class = "form-control" formControlName="countryCode">
+        <option disabled>Select Country</option>
+        <option *ngFor="let country of countryList" [value] = country.countryCode>{{country.countryName}}</option>
+    </select>
     </div>
     <div class = "btn-group"> 
     <a class="btn btn-outline-secondary" [routerLink]="['/airports']">Return to list</a>

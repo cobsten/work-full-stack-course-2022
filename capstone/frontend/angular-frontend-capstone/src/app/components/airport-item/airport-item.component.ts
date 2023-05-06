@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Airport } from 'src/Objects';
+import { Airport, Country } from 'src/Objects';
 import { AirportService } from 'src/app/services/airport.service';
 
 @Component({
@@ -12,6 +12,8 @@ export class AirportItemComponent{
 
   @Input()
   airport!: Airport;
+  @Input()
+  countryList!: Country[];
 
   airportCode!: string;
   airportName!: string;

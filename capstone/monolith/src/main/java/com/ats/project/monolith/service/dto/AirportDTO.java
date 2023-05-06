@@ -42,6 +42,14 @@ public class AirportDTO implements Serializable{
 
 	public void setCountryCode(String countryCode) {
 		this.countryCode = countryCode;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("AirportDTO [airportCode=").append(airportCode).append(", airportName=").append(airportName)
+				.append(", countryCode=").append(countryCode).append("]");
+		return builder.toString();
 	}	
 
 }
