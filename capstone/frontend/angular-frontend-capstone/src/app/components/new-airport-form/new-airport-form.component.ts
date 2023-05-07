@@ -28,6 +28,7 @@ export class NewAirportFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true
     if (this.form.invalid) {
       console.log("Invalid details, form data not submitted!");
       console.log(JSON.stringify(this.form.value));
@@ -40,7 +41,7 @@ export class NewAirportFormComponent implements OnInit {
         {
           next: (v) => {
             this.submitSuccessAirport = v.airportCode;
-
+            this.submitted = false;
           },
           error: (e) => this.submitSuccessAirport = null,
           complete: () => console.info('complete')

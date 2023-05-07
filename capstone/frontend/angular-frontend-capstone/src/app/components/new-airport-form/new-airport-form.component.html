@@ -5,6 +5,11 @@
     <div class="form-group">
     <label for="name">Airport Name:</label>
     <input id="airportName" type="text" class = "form-control" formControlName="airportName">
+    <div *ngIf="submitted && form.controls['airportName'].errors">
+        <div *ngIf="form.controls['airportName'].errors?.['required']">
+            Airport Name is required
+        </div>
+    </div>
     </div>
     <div class="form-group">
     <label for="countryCode">Country Code:</label>
@@ -12,6 +17,11 @@
         <option disabled>Select Country</option>
         <option *ngFor="let country of countryList" value ="{{country.countryCode}}">{{country.countryName}}</option>
     </select>
+    <div *ngIf="submitted && form.controls['countryCode'].errors">
+        <div *ngIf="form.controls['countryCode'].errors?.['required']">
+            Country is required
+        </div>
+    </div>
     </div>
     <div class = "btn-group"> 
     <a class="btn btn-outline-secondary" [routerLink]="['/airports']">Return to list</a>
