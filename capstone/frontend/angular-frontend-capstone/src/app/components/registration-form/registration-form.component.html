@@ -31,6 +31,9 @@
             <div *ngIf="registrationForm.controls['passphrase'].errors?.['required']">
                 Password is required
             </div>
+            <div *ngIf="registrationForm.controls['passphrase'].errors?.['pattern']">
+                Password will need to contain at least 1 uppercase,lowercase,digits and specials characters
+            </div>
         </div>
     </div>
     <div>

@@ -25,7 +25,7 @@ export class CustomValidator {
       const capital = /[A-Z]+/;
       const small = /[a-z]+/;
       const digit = /[0-9]+/;
-      const specialChar = /[*+_()=+\-]+/
+      const specialChar = /[" !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"]+/
       const valid = capital.test(control.value) &&
         small.test(control.value) &&
         digit.test(control.value) &&
