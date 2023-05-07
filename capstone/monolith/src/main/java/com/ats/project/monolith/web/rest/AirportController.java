@@ -56,6 +56,7 @@ public class AirportController {
 	
 	@PostMapping("/search")
 	public ResponseEntity<?> findAirport(@RequestBody AirportDTO airport){
+		log.info(airport.toString());
 		return ResponseEntity.ok().body(airportService.searchAirport(airport));
 	}
 

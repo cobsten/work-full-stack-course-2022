@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Airport, Country } from 'src/Objects';
+import { Airport, AirportSearch, Country } from 'src/Objects';
 import { AirportService } from 'src/app/services/airport.service';
 import { CountryService } from 'src/app/services/country.service';
 
@@ -8,16 +8,16 @@ import { CountryService } from 'src/app/services/country.service';
   templateUrl: './airport-list.component.html',
   styleUrls: ['./airport-list.component.scss']
 })
-export class AirportListComponent implements OnInit{
+export class AirportListComponent implements OnInit {
 
   airportList!: Airport[];
   countryList!: Country[];
 
-  constructor(private airportService: AirportService, private countryService: CountryService){}
+  constructor(private airportService: AirportService, private countryService: CountryService) { }
 
   ngOnInit(): void {
     this.airportService.retrieveAirports().subscribe(
-      (data) =>{
+      (data) => {
         this.airportList = data;
       }
     );
@@ -28,13 +28,20 @@ export class AirportListComponent implements OnInit{
     );
   }
 
-  updateItem(item: Airport){
+  updateItem(item: Airport) {
     console.log("submit:" + JSON.stringify(item));
     this.airportService.updateAirport(item).subscribe();
   }
-  deleteItem(item: Airport){
+  deleteItem(item: Airport) {
     this.airportService.deleteAirport(item).subscribe();
-    this.airportList = this.airportList.filter((arrayItem:Airport) => arrayItem.airportCode != item.airportCode)
+    this.airportList = this.airportList.filter((arrayItem: Airport) => arrayItem.airportCode != item.airportCode)
   }
 
+  searchItem(item: AirportSearch) {
+    this.airportService.searchAirport(item).subscribe(
+      (data) =>{
+        this.airportList = data;
+      }
+    );
+  }
 }

@@ -29,7 +29,7 @@ export class AirportItemComponent{
   deleteItemEvent = new EventEmitter<Airport>();
 
   updateItem(inputName:string, country:string){
-    let item: Airport = {airportCode:this.airport.airportCode,airportName:inputName,countryCode:country};
+    let item: Airport = {airportCode:this.airport.airportCode,airportName:inputName.toUpperCase(),countryCode:country};
     console.log(JSON.stringify(item))
     this.updateItemEvent.emit(item);
   }

@@ -10,7 +10,7 @@
     <label for="countryCode">Country Code:</label>
     <select id="countryCode" class = "form-control" formControlName="countryCode">
         <option disabled>Select Country</option>
-        <option *ngFor="let country of countryList" [value] = country.countryCode>{{country.countryName}}</option>
+        <option *ngFor="let country of countryList" value ="{{country.countryCode}}">{{country.countryName}}</option>
     </select>
     </div>
     <div class = "btn-group"> 

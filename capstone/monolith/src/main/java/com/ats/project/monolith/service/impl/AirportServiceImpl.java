@@ -8,6 +8,7 @@ import javax.validation.ConstraintViolationException;
 
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,9 +68,13 @@ public class AirportServiceImpl implements AirportService {
 
 	@Override
 	public List<AirportDTO> searchAirport(AirportDTO airport) {
-		ExampleMatcher exampleMatcher = ExampleMatcher.matchingAny().withMatcher("airport_name",
-				matcher -> matcher.ignoreCase().contains());
-		return repository.findAll(Example.of(mapper.toEntity(airport), exampleMatcher)).stream().map(mapper::toDto)
-				.collect(Collectors.toList());
+//		ExampleMatcher exampleMatcher = ExampleMatcher.matchingAll()
+//				.withMatcher("airport_name", matcher -> matcher.contains())
+//				.withMatcher("country_code", matcher -> matcher.exact());
+//		
+//		return repository.findAll(Example.of(mapper.toEntity(airport), exampleMatcher)).stream().map(mapper::toDto)
+//				.collect(Collectors.toList());
+		return repository.findByCountryCodeAndAirportNameContaining(airport.getCountryCode(), airport.getAirportName()==null? null: "%"+airport.getAirportName()+"%")
+		.stream().map(mapper::toDto).collect(Collectors.toList());
 	}
 }

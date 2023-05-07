@@ -8,6 +8,11 @@ export interface Airport {
     airportName: string,
     countryCode: string
 }
+export interface AirportSearch {
+    airportCode: string|null,
+    airportName: string|null,
+    countryCode: string|null
+}
 export interface Country {
     countryCode: string,
     countryName: string 

@@ -1,1 +1,11 @@
-<p>airport-search works!</p>
+<h3>Search</h3>
+<div>
+    <label for="name">Airport Name:</label>
+    <input #airportName id="airportName" type="text">
+    <label for="countryCode">Country Code:</label>
+    <select #countryCode id="countryCode">
+        <option value=""></option>
+        <option *ngFor="let country of countryList" value="{{country.countryCode}}">{{country.countryName}}</option>
+    </select>
+    <button class="btn btn-primary" (click)="submitSearch(airportName.value,countryCode.value)">Search</button>
+</div>

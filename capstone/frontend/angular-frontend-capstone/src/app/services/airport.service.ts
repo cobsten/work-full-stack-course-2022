@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { Airport } from 'src/Objects';
+import { Airport, AirportSearch } from 'src/Objects';
 import { EndpointConstants } from './endpoint-constants';
 
 @Injectable({
@@ -28,7 +28,7 @@ export class AirportService {
   }
 
   createAirport(airport: Airport){
-    return this.client.post<Airport>(this.airportApiUrl,airport).pipe(
+    return this.client.post<Airport>(this.airportApiUrl,this.toUpperCaseName(airport)).pipe(
       (data) =>{
         return data;
       }
@@ -36,10 +36,19 @@ export class AirportService {
   }
 
   updateAirport(airport: Airport){
-    return this.client.patch(this.airportApiUrl,airport);
+    return this.client.patch(this.airportApiUrl,this.toUpperCaseName(airport));
   }
 
   deleteAirport(airport: Airport){
     return this.client.delete<void>(this.airportApiUrl.concat("/",airport.airportCode));
+  }
+
+  searchAirport(airportSearch: AirportSearch):Observable<Airport[]>{
+    return this.client.post<Airport[]>(this.airportApiUrl.concat("/search"),airportSearch);
+  }
+
+  private toUpperCaseName(input: Airport):Airport{
+    input.airportName = input.airportName.toUpperCase();
+    return input;
   }
 }
